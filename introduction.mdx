@@ -1,0 +1,117 @@
+---
+title: Introduction to Newby Enterprises
+description: Get an overview of Newby Enterprises, a platform for organizing and managing project documentation, including key features and how it helps teams collaborate.
+---
+
+<Callout kind="info" title="Starter Kit Template">
+  This documentation was generated as a starter kit template based on your brand. Please review and customize the content to accurately reflect your product's features, APIs, and capabilities.
+</Callout>
+
+## Overview
+
+Newby Enterprises empowers you to organize, manage, and collaborate on project documentation effortlessly. You create structured spaces for all your docs, from technical specs to user guides, with powerful search, version control, and real-time collaboration features. Teams use it to centralize knowledge, reduce silos, and streamline workflows.
+
+Whether you manage software projects, marketing campaigns, or internal wikis, Newby Enterprises scales with your needs. Customize hierarchies, embed media, and integrate with tools like GitHub or Slack.
+
+## Key Features
+
+Explore the core capabilities that make Newby Enterprises stand out.
+
+<Columns cols={3}>
+  <Card title="Organized Spaces" icon="folder" href="#spaces">
+    Create unlimited documentation spaces with nested folders, tags, and permissions.
+  </Card>
+  <Card title="Real-Time Collaboration" icon="users" href="#collaboration">
+    Edit docs together with live previews, comments, and @mentions.
+  </Card>
+  <Card title="Advanced Search" icon="search" href="#search">
+    Full-text search across all docs with filters for tags, authors, and dates.
+  </Card>
+</Columns>
+
+## Get Started Quickly
+
+Follow these steps to set up your first documentation space.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit `https://app.newbyenterprises.com` and create a free account with your email.
+  </Step>
+  <Step title="Create a Space" icon="plus">
+    Click **New Space** and name it, like "Project Alpha Docs".
+  </Step>
+  <Step title="Add Your First Doc" icon="file-text">
+    Upload Markdown files or write directly in the editor.
+  </Step>
+  <Step title="Invite Team" icon="mail">
+    Share the space link or add members via email.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Pro tip: Use keyboard shortcuts like <kbd>Ctrl</kbd>+<kbd>K</kbd> for quick search once inside your space.
+</Callout>
+
+## Brand Guidelines
+
+Follow these guidelines to maintain consistency across your documentation.
+
+<Expandable title="Primary Brand Color" default-open="true">
+  Use `#3B82F6` as your primary blue for headers, buttons, and accents. It represents trust and professionalism.
+
+  ```css
+  :root {
+    --brand-primary: #3B82F6;
+    --brand-primary-hover: #2563EB;
+  }
+  ```
+
+  Pair it with neutral grays for text and white space.
+</Expandable>
+
+<Expandable title="Typography and Icons">
+  Stick to sans-serif fonts like Inter or system defaults. Use Lucide icons for UI elements, matching the style seen in this documentation.
+</Expandable>
+
+## Quick Integration Example
+
+Embed Newby Enterprises docs in your apps using our API.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/spaces/{spaceId}/docs', {
+    headers: {
+      'Authorization': `Bearer ${YOUR_API_KEY}`
+    }
+  });
+  const docs = await response.json();
+  console.log(docs);
+  ```
+  ```python
+  import requests
+
+  headers = {'Authorization': f'Bearer {YOUR_API_KEY}'}
+  response = requests.get('https://api.example.com/v1/spaces/{spaceId}/docs', headers=headers)
+  docs = response.json()
+  print(docs)
+  ```
+</CodeGroup>
+
+## Next Steps
+
+Dive deeper into Newby Enterprises.
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+    Set up your first project in under 5 minutes.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your spaces with API keys and OAuth.
+  </Card>
+  <Card title="Collaboration Features" icon="users" href="/collaboration">
+    Advanced team workflows and permissions.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated with the latest releases.
+  </Card>
+</Columns>

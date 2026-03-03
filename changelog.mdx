@@ -1,0 +1,127 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Newby Enterprises, highlighting new features and fixes.
+---
+
+## Recent Updates
+
+Stay informed about the latest enhancements to Newby Enterprises, your documentation management platform. You receive automatic updates, but review these notes to understand new capabilities and required actions.
+
+<Callout kind="info">
+Subscribe to our RSS feed or join the community Discord for real-time notifications about new releases.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration editing for documentation pages
+- Introduced version history and rollback functionality
+- Integrated search across all projects with advanced filters
+
+## Improvements
+
+- Enhanced performance for large documentation sites (up to `{50%}` faster load times)
+- Improved mobile responsiveness for the editor interface
+
+## Bug Fixes
+
+- Fixed sidebar navigation collapse issue on refresh
+- Resolved export to PDF failures for pages with images
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Customizable themes with your brand colors (e.g., `#3B82F6`)
+- Embed support for videos and interactive components
+- API endpoints for programmatic documentation management
+
+## Bug Fixes
+
+- Corrected authentication token refresh logic
+- Fixed markdown parsing for nested lists and tables
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Initial Release
+
+- Core documentation editor with MDX support
+- Project organization and access controls
+- Built-in preview and publishing workflows
+
+## Breaking Changes
+
+- Updated configuration format – migrate using the guide below
+
+</Update>
+
+## Version Summary
+
+| Version | Date       | Key Changes                  |
+|---------|------------|------------------------------|
+| v1.2.0  | 2024-10-15 | Collaboration, search        |
+| v1.1.0  | 2024-09-20 | Themes, embeds, API          |
+| v1.0.0  | 2024-08-10 | Initial platform launch      |
+
+## Upgrading to the Latest Version
+
+Follow these steps to ensure your documentation space uses the newest features.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+  Export all projects:
+
+  ```bash
+  npx newby-export --all-projects > backup.json
+  ```
+
+  </Step>
+  <Step title="Update CLI" icon="download">
+
+  <CodeGroup tabs="npm,yarn">
+  ````bash
+  npm install -g @newby/cli@latest
+  ````
+  ````bash
+  yarn global add @newby/cli@latest
+  ````
+  </CodeGroup>
+
+  </Step>
+  <Step title="Rebuild Site" icon="rocket">
+
+  ```bash
+  newby rebuild --prod
+  newby deploy
+  ```
+
+  Verify at `https://docs.example.com`.
+
+  </Step>
+</Steps>
+
+## Upcoming Roadmap
+
+Explore what's coming next to Newby Enterprises.
+
+<Columns cols={3}>
+  <Card title="AI Assistance" icon="zap" href="#">
+    Automated content generation and suggestions.
+  </Card>
+  <Card title="Advanced Analytics" icon="bar-chart-3" href="#">
+    Usage insights and popular page tracking.
+  </Card>
+  <Card title="Enterprise SSO" icon="shield" href="#">
+    SAML and OAuth integration for teams.
+  </Card>
+</Columns>
+
+<Callout kind="tip" title="Provide Feedback">
+Share your thoughts on future features via the feedback form in your dashboard.
+</Callout>

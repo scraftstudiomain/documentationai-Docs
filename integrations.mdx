@@ -1,0 +1,134 @@
+---
+title: Integrations and Extensions
+description: Connect Newby Enterprises with third-party tools to enhance your documentation workflow, including webhooks for automation.
+---
+
+## Overview
+
+Extend your Newby Enterprises documentation workflow by integrating with popular third-party services. You can automate notifications, sync content with version control, and build custom extensions using webhooks and APIs. This guide covers popular integrations, webhook setup, API access, and export options.
+
+<Callout kind="tip">
+Review your integration permissions before enabling webhooks to avoid unintended data sharing.
+</Callout>
+
+## Popular Integrations
+
+Connect Newby Enterprises to essential tools for seamless collaboration.
+
+<Columns cols={3}>
+  <Card title="GitHub" icon="github" href="https://github.com" target="_blank">
+    Sync documentation changes with repositories. Automatically create pull requests for doc updates.
+  </Card>
+  <Card title="Slack" icon="message-circle" href="https://slack.com" target="_blank">
+    Receive real-time notifications for doc publishes, comments, and approvals in your channels.
+  </Card>
+  <Card title="Zapier" icon="zap" href="https://zapier.com" target="_blank">
+    Build no-code automations connecting docs to 5000+ apps.
+  </Card>
+</Columns>
+
+## Setting Up Webhooks
+
+Webhooks notify external services about events like doc updates or publishes. Follow these steps to configure one.
+
+<Steps>
+  <Step title="Create Webhook" icon="plus">
+    Navigate to your workspace settings > Integrations > Webhooks. Click "New Webhook".
+  </Step>
+  <Step title="Configure URL" icon="link">
+    Enter your endpoint URL, such as `https://your-webhook-url.com/newby-events`.
+  </Step>
+  <Step title="Select Events" icon="bell">
+    Choose events: `doc.published`, `doc.updated`, `comment.added`.
+  </Step>
+  <Step title="Test & Save" icon="check-circle">
+    Send a test payload and save. Copy the generated `{webhook_id}` for reference.
+  </Step>
+</Steps>
+
+Verify payloads with this example structure:
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Example incoming webhook payload
+  const payload = {
+    event: "doc.published",
+    doc_id: "doc_123abc",
+    title: "API Reference",
+    url: "https://docs.example.com/api"
+  };
+  console.log(payload);
+  ```
+  ```python
+  # Example incoming webhook payload
+  payload = {
+      "event": "doc.published",
+      "doc_id": "doc_123abc",
+      "title": "API Reference",
+      "url": "https://docs.example.com/api"
+  }
+  print(payload)
+  ```
+</CodeGroup>
+
+## API Access for Custom Extensions
+
+Build custom integrations using the Newby Enterprises API at `https://api.example.com/v1`.
+
+<Tabs>
+  <Tab title="Authentication" icon="key">
+    Use Bearer token auth. Include `Authorization: Bearer YOUR_API_KEY` in headers.
+  </Tab>
+  <Tab title="Fetch Docs" icon="database">
+    Retrieve document lists:
+
+    <Request show-lines="true">
+      ```javascript
+      const response = await fetch('https://api.example.com/v1/docs', {
+        headers: { Authorization: 'Bearer YOUR_API_KEY' }
+      });
+      ```
+    </Request>
+  </Tab>
+</Tabs>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token for authentication.
+</ParamField>
+
+<ResponseField name="docs" field-type="array" required="true">
+  List of documents with IDs and titles.
+</ResponseField>
+
+## Exporting Documentation
+
+Export your docs to various formats for sharing or archiving.
+
+| Format     | Use Case                  | How to Export                  |
+|------------|---------------------------|--------------------------------|
+| PDF        | Printable reports        | Settings > Export > PDF       |
+| Markdown   | GitHub repos             | Select docs > Export > MD     |
+| HTML       | Static sites             | Bulk export > HTML zip        |
+| JSON       | API integrations         | API endpoint: `/v1/export/json` |
+
+<Expandable title="Advanced Export via API" default-open="false">
+Use the export API for automation:
+
+````javascript
+const exportData = await fetch('https://api.example.com/v1/export/markdown?doc_id=doc_123abc', {
+  headers: { Authorization: 'Bearer YOUR_API_KEY' }
+});
+````
+
+</Expandable>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Webhook Troubleshooting" icon="alert-triangle" href="#">
+    Common issues and fixes.
+  </Card>
+  <Card title="Custom API Guides" icon="code" href="/authentication">
+    Dive into full API reference.
+  </Card>
+</Columns>

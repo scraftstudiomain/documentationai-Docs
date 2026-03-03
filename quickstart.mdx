@@ -1,0 +1,126 @@
+---
+title: Getting Started with Newby Enterprises
+description: Set up your account and create your first documentation space to start organizing project docs in minutes.
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+<Callout kind="info">
+- A modern web browser like Chrome, Firefox, or Safari
+- A valid email address for account verification
+- Optional: Existing project documents in PDF, Markdown, or DOCX format
+</Callout>
+
+## Step 1: Sign Up and Log In
+
+Create your Newby Enterprises account in under 2 minutes.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to `https://dashboard.example.com` and click **Sign Up**.
+
+    Select **Continue with Email** or use your preferred provider.
+  </Step>
+  <Step title="Verify Your Email" icon="mail">
+    Enter your email and create a strong password. Check your inbox for the verification link and click it to activate your account.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to the dashboard, enter your credentials, and access your workspace.
+  </Step>
+</Steps>
+
+## Step 2: Create Your First Documentation Space
+
+Organize your projects by creating dedicated spaces.
+
+<Steps>
+  <Step title="New Space" icon="plus">
+    From the dashboard, click **New Space**. Enter a name like `Project Alpha Docs` and select a template (e.g., "Team Documentation").
+  </Step>
+  <Step title="Customize Settings" icon="settings">
+    Add a description, set permissions for team members, and choose a workspace color.
+  </Step>
+  <Step title="Save and Enter" icon="arrow-right">
+    Click **Create**. You'll land in your new space ready for content.
+  </Step>
+</Steps>
+
+## Step 3: Upload Your First Documents
+
+Add content quickly via multiple methods.
+
+<Tabs>
+  <Tab title="Drag & Drop" icon="upload">
+    Open your space and drag files directly into the editor canvas.
+
+    Supported formats: PDF, Markdown (`*.md`), Word (`*.docx`), images.
+
+    Files auto-organize into pages.
+  </Tab>
+  <Tab title="Bulk Upload" icon="package">
+    Click **Upload** in the sidebar.
+
+    Select multiple files from your computer. Metadata like titles extract automatically.
+  </Tab>
+  <Tab title="API Integration" icon="code">
+    For automation, use the Spaces API.
+
+    <CodeGroup tabs="cURL,JavaScript">
+      ```bash
+      curl -X POST https://api.example.com/v1/spaces/{spaceId}/documents \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -F "file=@/path/to/document.md"
+      ```
+      ```javascript
+      const formData = new FormData();
+      formData.append('file', documentFile);
+
+      await fetch(`https://api.example.com/v1/spaces/{spaceId}/documents`, {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer YOUR_API_KEY' },
+        body: formData
+      });
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+Pro tip: Use the `{spaceId}` from your space settings for API calls. Find it under **Space Settings > API**.
+</Callout>
+
+## Explore the Editor and Navigation
+
+The intuitive editor supports real-time collaboration.
+
+- **Sidebar**: Manage pages, spaces, and search content
+- **Canvas**: Edit with Markdown, rich text, or embeds
+- **Top Bar**: Undo/redo, publish, and export options
+
+<Columns cols={3}>
+  <Card title="Editor Basics" icon="edit-3" href="#editor-overview">
+    Learn Markdown shortcuts and embeds.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="/introduction">
+    Invite members and set roles.
+  </Card>
+  <Card title="Advanced Features" icon="zap" href="/authentication">
+    Explore API access and webhooks.
+  </Card>
+</Columns>
+
+## Next Steps
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+- **Upload fails?** Check file size limits (50MB max) and format compatibility.
+- **Can't find space?** Use the global search bar.
+- **Need help?** Visit the [Help Center](/help-center) or contact support.
+</Expandable>
+
+Congratulations! You've set up Newby Enterprises. Start documenting your projects today.
+
+<Callout kind="success">
+Ready for more? Check the [full documentation](/introduction) for advanced workflows.
+</Callout>
